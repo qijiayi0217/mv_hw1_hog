@@ -1,0 +1,10 @@
+In this image, we matched 10 feature points. Eight of them matched two calculator and the other two don't. After a carefully observation, about 5 feature points are matched correctly. So in this picture, the success rate is 50%.
+
+I don't think it is sufficient to play the game. Because this picture is the best result and still under 50%. In other data set such as cards and other matches in cards2, the success rate is much lower. Some of the matches is really bad.
+
+The reasons are list below:
+	1. In folder cards, objects in different picture have some change on scale but hog method can not deal with the different scale of objects. But the scale-invariance is necessary in this game if we use the data set in folder cards.
+	
+	2. The rotation method for eliminating rotation effect might be not so good. Because we only select the dominated peak in histogram and determine the rotation angle. But this may produce a big error in some case. A better way is to select 3 most highest bins instead and fit them in a parabola.
+
+	3. And 8 bins in a histogram is not enough to get a good result since the interval in this case will be pi/4. This angle interval is quite big and it will cause a huge amount of errors. If we have more bins such as 16 or more might make the result better.
